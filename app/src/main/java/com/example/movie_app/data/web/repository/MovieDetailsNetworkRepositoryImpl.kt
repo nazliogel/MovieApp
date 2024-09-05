@@ -1,24 +1,17 @@
+package com.example.movie_app.data.web.repository
+
 import com.example.movie_app.data.web.model.MovieDetailsResponse
-import com.example.movie_app.utils.Constant
-import com.example.movie_app.data.web.model.MovieListResponse
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import com.example.movie_app.data.web.service.MovieServices
+import com.example.movie_app.domain.repository.MovieDetailsNetworkRepository
+import javax.inject.Inject
 
-interface MovieServices {
-    @GET("movie/popular")
-    suspend fun getMovies(
-        @Query("page")
-        pageNumber: Int = 1,
-        @Query("api_key")
-        apiKey: String = Constant.API_KEY
-    ): MovieListResponse
+class MovieDetailsNetworkRepositoryImpl @Inject constructor (
+    private val movieDetailsServices : MovieServices
+) : MovieDetailsNetworkRepository {
 
-    @GET("movie/{movie_id}")
-    suspend fun getMovieDetails(
-        @Path("movie_id")
-        id: String,
-        @Query("api_key")
-        apiKey: String = Constant.API_KEY
-    ): MovieDetailsResponse
+    //this is implemented by override
+    override suspend fun getMovieDetails(movie_id : String): MovieDetailsResponse {
+        return movieDetailsServices.getMovieDetails(movie_id)
+    }
+
 }
