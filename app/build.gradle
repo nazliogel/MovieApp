@@ -8,6 +8,7 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -20,9 +21,6 @@ android {
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
-
-
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -45,6 +43,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
 }
 
 dependencies {
@@ -68,6 +67,8 @@ dependencies {
     ksp("com.google.dagger:hilt-compiler:2.48")
     ksp("androidx.hilt:hilt-compiler:1.1.0")
     implementation("com.github.bumptech.glide:glide:4.13.2")
-    implementation("com.squareup.moshi:moshi:1.12.0")
-    implementation("com.squareup.moshi:moshi-kotlin:1.12.0")
+    implementation("com.squareup.moshi:moshi:1.14.0")
+    implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.10'
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.2")
 }
