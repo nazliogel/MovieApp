@@ -8,7 +8,7 @@ data class MovieDetailsResponse(
     @Json(name = "adult")
     val adult: Boolean?,
     @Json(name = "backdrop_path")
-    val backdropPath: String?,
+    val backdrop_path: String?,
     @Json(name = "belongs_to_collection")
     val belongsToCollection: Any?,
     @Json(name = "budget")
