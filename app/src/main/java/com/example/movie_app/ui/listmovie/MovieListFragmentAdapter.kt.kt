@@ -56,11 +56,11 @@ class MovieListFragmentAdapter : RecyclerView.Adapter<MovieListFragmentAdapter.M
                 .fitCenter()
 
             Glide.with(root.context)
-                .load(Constant.POSTER_BASE_URL + listItem.backdropPath)
+                .load(Constant.POSTER_BASE_URL + listItem.backdrop_path)
                 .apply(requestOptions)
                 .into(ImgMovie)
 
-            Log.d("MovieListAdapter", "Image URL: ${Constant.POSTER_BASE_URL + listItem.backdropPath}")
+            Log.d("MovieListAdapter", "Image URL: ${Constant.POSTER_BASE_URL + listItem.backdrop_path}")
 
 
         }
