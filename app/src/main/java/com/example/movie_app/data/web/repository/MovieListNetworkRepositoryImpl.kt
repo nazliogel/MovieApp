@@ -13,4 +13,11 @@ class MovieListNetworkRepositoryImpl @Inject constructor(
     override suspend fun getMovies(): MovieListResponse = withContext(Dispatchers.IO) {
         movieListServices.getMovies()
     }
+
+    override suspend fun getUpComingMovies(page:Int): MovieListResponse {
+        return movieListServices.getUpComingMovies(page)
+    }
+
+
+
 }

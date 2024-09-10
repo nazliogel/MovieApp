@@ -12,6 +12,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+
 @HiltViewModel
 class MovieListViewModel @Inject constructor(
     private val getMovieListUseCase: GetMovieListUseCase
@@ -21,10 +22,10 @@ class MovieListViewModel @Inject constructor(
 
     fun getMovieListUseCaseState(){
         viewModelScope.launch{
-            getMovieListUseCase.invoke().collect{
+            getMovieListUseCase.invoke(page = 40).collect{
                 when(it){
                     is UseCaseState.Success -> {
-                       listMutableLiveData.value = it
+                        listMutableLiveData.value = it
                     }
                     is UseCaseState.Error -> {
                         Log.i(it.message,"")
@@ -37,5 +38,7 @@ class MovieListViewModel @Inject constructor(
         }
     }
 }
+
+
 
 
