@@ -59,10 +59,7 @@ class MovieListFragmentAdapter : RecyclerView.Adapter<MovieListFragmentAdapter.M
                 .load(Constant.POSTER_BASE_URL + listItem.backdrop_path)
                 .apply(requestOptions)
                 .into(ImgMovie)
-
             Log.d("MovieListAdapter", "Image URL: ${Constant.POSTER_BASE_URL + listItem.backdrop_path}")
-
-
         }
     }
 
