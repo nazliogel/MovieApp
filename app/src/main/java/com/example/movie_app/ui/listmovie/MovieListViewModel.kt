@@ -45,7 +45,7 @@ class MovieListViewModel @Inject constructor(
     // Yaklaşan filmleri getiren fonksiyon
     fun getUpMovieUseCaseState() {
         viewModelScope.launch {
-            getUpcomingMoviesUseCase.invoke(page = 1).collect { it ->
+            getUpcomingMoviesUseCase.invoke(page = 40).collect { it ->
                 when (it) {
                     is UseCaseState.Success -> {
                         upComingListMutableLiveData.value = it

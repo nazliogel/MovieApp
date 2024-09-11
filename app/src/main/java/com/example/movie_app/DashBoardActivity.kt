@@ -33,6 +33,11 @@ class DashBoardActivity :
             /* val navigation = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(it.toInt())
              findNavController().navigate(navigation)*/
         }
+
+        binding.view3.adapter = movieListAdapter
+        movieListAdapter.setOnItemClickListener {
+
+        }
     }
 
     private val movieListAdapter by lazy {

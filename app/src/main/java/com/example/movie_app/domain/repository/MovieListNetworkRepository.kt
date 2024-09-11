@@ -7,5 +7,5 @@ interface MovieListNetworkRepository {
 
     suspend fun getUpComingMovies(page:Int): MovieListResponse
 
-    //
+
 }

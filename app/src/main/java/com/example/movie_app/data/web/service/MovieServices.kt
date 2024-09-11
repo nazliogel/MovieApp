@@ -16,10 +16,10 @@ interface MovieServices {
         apiKey: String = Constant.API_KEY
     ): MovieListResponse
 
-    @GET("movie/popular")
+    @GET("movie/upcoming")
     suspend fun getUpComingMovies(
         @Query("page")
-        pageNumber: Int = 1,
+        pageNumber: Int = 2,
         @Query("api_key")
         apiKey: String = Constant.API_KEY
     ): MovieListResponse
