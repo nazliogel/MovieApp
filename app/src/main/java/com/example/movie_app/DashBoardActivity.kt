@@ -11,6 +11,7 @@ import com.example.movie_app.databinding.ActivityDashBoardBinding
 import com.example.movie_app.domain.usecase.UseCaseState
 import com.example.movie_app.ui.listmovie.MovieListFragmentAdapter
 import com.example.movie_app.ui.listmovie.MovieListViewModel
+import com.example.movie_app.ui.listmovie.MovieUpcomingListFragmentAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,11 +27,22 @@ class DashBoardActivity :
             /* val navigation = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(it.toInt())
              findNavController().navigate(navigation)*/
         }
+
+        binding.view3.adapter = movieUpcomingListListAdapter
+        movieListAdapter.setOnItemClickListener {
+            /* val navigation = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(it.toInt())
+             findNavController().navigate(navigation)*/
+        }
     }
 
     private val movieListAdapter by lazy {
         MovieListFragmentAdapter()
     }
+
+    private val movieUpcomingListListAdapter by lazy {
+        MovieUpcomingListFragmentAdapter()
+    }
+
 
     override fun setupUI() {
         setupAdapter()
@@ -73,7 +85,7 @@ class DashBoardActivity :
             is UseCaseState.Success -> {
                 // Update UI with upcoming movies
                 // You might need a separate adapter or UI component for upcoming movies
-                movieListAdapter.differ.submitList(status.data?.results) // or a different adapter if needed
+                movieUpcomingListListAdapter.differ.submitList(status.data?.results) // or a different adapter if needed
             }
 
             else -> {
