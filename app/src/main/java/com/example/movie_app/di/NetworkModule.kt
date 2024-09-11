@@ -1,7 +1,10 @@
 package com.example.movie_app.movieapp.di
 
 import android.util.Log
+import com.example.movie_app.data.web.repository.MovieListNetworkRepositoryImpl
+import com.example.movie_app.data.web.repository.UpComingMovieListNetworkRepositoryImpl
 import com.example.movie_app.data.web.service.MovieServices
+import com.example.movie_app.domain.repository.UpComingMovieListNetworkRepository
 import com.example.movie_app.utils.Constant
 import com.example.movie_app.utils.Constant.BASE_URL
 import com.squareup.leakcanary.core.BuildConfig
@@ -52,7 +55,14 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideMovieListServices(retrofit: Retrofit): MovieServices {
+    fun provideMovieServices(retrofit: Retrofit): MovieServices {
         return retrofit.create(MovieServices::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun provideUpComingMovieListNetworkRepository(movieServices: MovieServices): UpComingMovieListNetworkRepository {
+        return UpComingMovieListNetworkRepositoryImpl(movieServices)
+    }
+
 }

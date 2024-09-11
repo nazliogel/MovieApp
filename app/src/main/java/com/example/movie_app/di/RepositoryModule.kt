@@ -20,4 +20,6 @@ abstract class RepositoryModule {
     @Singleton
     @Binds
     abstract fun bindMovieDetailsRepository(movieDetailsNetworkRepositoryImpl: MovieDetailsNetworkRepositoryImpl) : MovieDetailsNetworkRepository
+
+
 }
