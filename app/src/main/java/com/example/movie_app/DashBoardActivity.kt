@@ -11,6 +11,7 @@ import com.example.movie_app.databinding.ActivityDashBoardBinding
 import com.example.movie_app.domain.usecase.UseCaseState
 import com.example.movie_app.ui.listmovie.MovieListFragmentAdapter
 import com.example.movie_app.ui.listmovie.MovieListViewModel
+import com.example.movie_app.ui.listmovie.MovieTopRatedListFragmentAdapter
 import com.example.movie_app.ui.listmovie.MovieUpcomingListFragmentAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,10 +35,11 @@ class DashBoardActivity :
              findNavController().navigate(navigation)*/
         }
 
-        binding.view3.adapter = movieListAdapter
-        movieListAdapter.setOnItemClickListener {
-
+        binding.view0.adapter = movieTopRatedListAdapter
+        movieTopRatedListAdapter.setOnItemClickListener {
+            // Handle item click for top-rated movies
         }
+
     }
 
     private val movieListAdapter by lazy {
@@ -46,6 +48,10 @@ class DashBoardActivity :
 
     private val movieUpcomingListListAdapter by lazy {
         MovieUpcomingListFragmentAdapter()
+    }
+
+    private val movieTopRatedListAdapter by lazy {
+        MovieTopRatedListFragmentAdapter()
     }
 
 
@@ -60,6 +66,11 @@ class DashBoardActivity :
         viewModel.getUpMovieUseCaseState()
         viewModel.upComingListLiveData.observe(this) { result ->
             handleUpcomingMovieList(result)
+        }
+
+        viewModel.getTopRatedMoviesUseCaseState()
+        viewModel.topRatedListLiveData.observe(this){ result ->
+            handleTopRatedMovieList(result)
         }
 
     }
@@ -91,6 +102,24 @@ class DashBoardActivity :
                 // Update UI with upcoming movies
                 // You might need a separate adapter or UI component for upcoming movies
                 movieUpcomingListListAdapter.differ.submitList(status.data?.results) // or a different adapter if needed
+            }
+
+            else -> {
+                // Handle other cases
+            }
+        }
+    }
+
+    private fun handleTopRatedMovieList(status: UseCaseState<MovieListResponse>) {
+        when (status) {
+            is UseCaseState.Error -> {
+                // Handle error for upcoming movies
+            }
+
+            is UseCaseState.Success -> {
+                // Update UI with upcoming movies
+                // You might need a separate adapter or UI component for upcoming movies
+                movieTopRatedListAdapter.differ.submitList(status.data?.results) // or a different adapter if needed
             }
 
             else -> {

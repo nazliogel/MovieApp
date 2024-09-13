@@ -17,4 +17,8 @@ class MovieListNetworkRepositoryImpl @Inject constructor(
     override suspend fun getUpComingMovies(page:Int): MovieListResponse {
         return movieListServices.getUpComingMovies(page)
     }
+
+    override suspend fun getTopRated(page: Int): MovieListResponse {
+        return movieListServices.getTopRatedMovies(page)
+    }
 }

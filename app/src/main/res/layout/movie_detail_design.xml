@@ -27,7 +27,7 @@
             android:text="Movie Title"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="@android:color/red" />
+            android:textColor="@color/red" />
 
         <!-- Yayın Tarihi -->
         <TextView
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
 
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:textColor="@android:color/black"
+            android:textColor="@color/black"
             android:layout_marginTop="8dp"/>
 
         <!-- Film Açıklaması -->
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Movie overview or description goes here."
-            android:textColor="@android:color/white"
+            android:textColor="@color/white"
             android:textSize="14sp" />
 
         <!-- Oyuncu Listesi Başlığı -->
@@ -67,7 +67,7 @@
             android:text="Cast:"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/white" />
 
         <!-- Oyuncular için yatay liste -->
         <androidx.recyclerview.widget.RecyclerView

@@ -14,9 +14,9 @@ import com.example.movie_app.data.web.model.MovieListResponse
 import com.example.movie_app.databinding.MovieItemDesignBinding
 import com.example.movie_app.utils.Constant
 
-class MovieUpcomingListFragmentAdapter : RecyclerView.Adapter<MovieUpcomingListFragmentAdapter.MovieUpcomingListFragmentViewHolder>() {
+class MovieTopRatedListFragmentAdapter : RecyclerView.Adapter<MovieTopRatedListFragmentAdapter.MovieTopRatedListFragmentViewHolder>() {
 
-    class  MovieUpcomingListFragmentViewHolder(val binding: MovieItemDesignBinding) : RecyclerView.ViewHolder(binding.root)
+    class MovieTopRatedListFragmentViewHolder(val binding: MovieItemDesignBinding) : RecyclerView.ViewHolder(binding.root)
 
     private val differCallback = object : DiffUtil.ItemCallback<MovieListResponse.Result>() {
         override fun areItemsTheSame(
@@ -36,14 +36,14 @@ class MovieUpcomingListFragmentAdapter : RecyclerView.Adapter<MovieUpcomingListF
 
     val differ = AsyncListDiffer(this, differCallback)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieUpcomingListFragmentViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieTopRatedListFragmentViewHolder {
         val binding = MovieItemDesignBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MovieUpcomingListFragmentViewHolder(binding)
+        return MovieTopRatedListFragmentViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: MovieUpcomingListFragmentViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MovieTopRatedListFragmentViewHolder, position: Int) {
         val listItem = differ.currentList[position]
-        Log.d("UpcomingMovieAdapter", "Binding item at position $position: $listItem")
+        Log.d("TopRatedMovieAdapter", "Binding item at position $position: $listItem")
 
         with(holder.binding) {
             tvMovieName.text = listItem.title
@@ -60,9 +60,12 @@ class MovieUpcomingListFragmentAdapter : RecyclerView.Adapter<MovieUpcomingListF
                 .apply(requestOptions)
                 .into(ImgMovie)
 
-            Log.d("UpcomingMovieAdapter", "Image URL: ${Constant.POSTER_BASE_URL + listItem.backdrop_path}")
+            Log.d("TopRatedMovieAdapter", "Image URL: ${Constant.POSTER_BASE_URL + listItem.backdrop_path}")
 
-
+            // Tıklama olayını ayarla
+            root.setOnClickListener {
+                onItemClickListener?.invoke(listItem.id.toString())
+            }
         }
     }
 
