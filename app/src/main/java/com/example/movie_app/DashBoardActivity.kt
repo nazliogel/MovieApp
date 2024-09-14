@@ -59,6 +59,7 @@ class DashBoardActivity :
 
     override fun setupUI() {
         setupAdapter()
+
         viewModel.getMovieListUseCaseState()
         //çapır upcase
         viewModel.listLiveData.observe(this) {

@@ -67,10 +67,5 @@ class NetworkModule {
         return UpComingMovieListNetworkRepositoryImpl(movieServices)
     }
 
-    @Singleton
-    @Provides
-    fun provideMovieDetailsRepository(movieServices: MovieServices): MovieDetailsNetworkRepository {
-        return MovieDetailsNetworkRepositoryImpl(movieServices)
-    }
 
 }
