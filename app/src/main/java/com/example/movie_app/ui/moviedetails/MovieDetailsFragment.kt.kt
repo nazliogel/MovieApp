@@ -33,15 +33,15 @@ class MovieDetailsFragment : BaseFragment<MovieDetailDesignBinding>(MovieDetailD
         viewModel.listDetailsLiveData.observe(viewLifecycleOwner) { movie ->
             if (movie != null) {
                 with(binding) {
-                    movieTitle.text = movie.originalTitle // Başlık
-                    tvReleaseDate.text = movie.releaseDate // Yayın tarihi
-                    tvRating.text = movie.voteAverage?.format(1) // Puan
+                    movieTitle.text = movie.original_title // Başlık
+                    tvReleaseDate.text = movie.release_date // Yayın tarihi
+                    tvRating.text = movie.vote_average?.format(1) // Puan
                     movieOverview.text = movie.overview // Film açıklaması
 
                     // Posteri yükle ve göster
                     Glide.with(this@MovieDetailsFragment)
                         .setDefaultRequestOptions(RequestOptions().override(200, 300).fitCenter())
-                        .load(Constant.POSTER_BASE_URL + movie.backdropPath)
+                        .load(Constant.POSTER_BASE_URL + movie.backdrop_path)
                         .into(moviePoster)
                 }
             }

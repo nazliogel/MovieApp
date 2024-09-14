@@ -7,8 +7,8 @@ import com.squareup.moshi.JsonClass
 data class MovieDetailsResponse(
     @Json(name = "adult")
     val adult: Boolean?,
-    @Json(name = "backdrop_path")
-    val backdropPath: String?,
+   @Json(name = "backdrop_path")
+    val backdrop_path: String?,
     @Json(name = "belongs_to_collection")
     val belongsToCollection: Any?,
     @Json(name = "budget")
@@ -24,7 +24,7 @@ data class MovieDetailsResponse(
     @Json(name = "original_language")
     val originalLanguage: String?,
     @Json(name = "original_title")
-    val originalTitle: String?,
+    val original_title: String?,
     @Json(name = "overview")
     val overview: String?,
     @Json(name = "popularity")
@@ -36,7 +36,7 @@ data class MovieDetailsResponse(
     @Json(name = "production_countries")
     val productionCountries: List<ProductionCountry?>?,
     @Json(name = "release_date")
-    val releaseDate: String?,
+    val release_date: String?,
     @Json(name = "revenue")
     val revenue: Int?,
     @Json(name = "runtime")
@@ -52,7 +52,7 @@ data class MovieDetailsResponse(
     @Json(name = "video")
     val video: Boolean?,
     @Json(name = "vote_average")
-    val voteAverage: Double?,
+    val vote_average: Double?,
     @Json(name = "vote_count")
     val voteCount: Int?
 ) {

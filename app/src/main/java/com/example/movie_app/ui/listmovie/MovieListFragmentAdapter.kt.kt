@@ -47,9 +47,9 @@ class MovieListFragmentAdapter : RecyclerView.Adapter<MovieListFragmentAdapter.M
 
         with(holder.binding) {
             tvMovieName.text = listItem.title
-            tvLang.text = listItem.originalLanguage
-            tvRate.text = listItem.voteAverage.toString()
-            tvMovieDateRelease.text = listItem.releaseDate
+            tvLang.text = listItem.original_language
+            tvRate.text = listItem.vote_average.toString()
+            tvMovieDateRelease.text = listItem.release_date
 
             val requestOptions = RequestOptions()
                 .override(115, 160)
@@ -61,7 +61,6 @@ class MovieListFragmentAdapter : RecyclerView.Adapter<MovieListFragmentAdapter.M
                 .into(ImgMovie)
 
             Log.d("MovieListAdapter", "Image URL: ${Constant.POSTER_BASE_URL + listItem.backdrop_path}")
-
 
         }
     }

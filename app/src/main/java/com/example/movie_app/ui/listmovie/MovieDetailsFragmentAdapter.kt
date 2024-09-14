@@ -47,9 +47,9 @@ class MovieDetailsFragmentAdapter : RecyclerView.Adapter<MovieDetailsFragmentAda
 
         with(holder.binding) {
             tvMovieName.text = listItem.title
-            tvLang.text = listItem.originalLanguage
-            tvRate.text = listItem.voteAverage.toString()
-            tvMovieDateRelease.text = listItem.releaseDate
+            tvLang.text = listItem.original_language
+            tvRate.text = listItem.vote_average.toString()
+            tvMovieDateRelease.text = listItem.release_date
 
             val requestOptions = RequestOptions()
                 .override(115, 160)

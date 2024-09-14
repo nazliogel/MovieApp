@@ -8,6 +8,4 @@ interface MovieListNetworkRepository {
     suspend fun getUpComingMovies(page:Int): MovieListResponse
 
     suspend fun getTopRated(page:Int): MovieListResponse
-
-
 }

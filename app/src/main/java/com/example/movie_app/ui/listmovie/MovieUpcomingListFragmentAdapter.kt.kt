@@ -47,9 +47,9 @@ class MovieUpcomingListFragmentAdapter : RecyclerView.Adapter<MovieUpcomingListF
 
         with(holder.binding) {
             tvMovieName.text = listItem.title
-            tvLang.text = listItem.originalLanguage
-            tvRate.text = listItem.voteAverage.toString()
-            tvMovieDateRelease.text = listItem.releaseDate
+            tvLang.text = listItem.original_language
+            tvRate.text = listItem.vote_average.toString()
+            tvMovieDateRelease.text = listItem.release_date
 
             val requestOptions = RequestOptions()
                 .override(115, 160)
@@ -62,7 +62,9 @@ class MovieUpcomingListFragmentAdapter : RecyclerView.Adapter<MovieUpcomingListF
 
             Log.d("UpcomingMovieAdapter", "Image URL: ${Constant.POSTER_BASE_URL + listItem.backdrop_path}")
 
-
+            root.setOnClickListener {
+                onItemClickListener?.invoke(listItem.id.toString())
+            }
         }
     }
 

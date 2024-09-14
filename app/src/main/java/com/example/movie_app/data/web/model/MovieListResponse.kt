@@ -26,9 +26,9 @@ data class MovieListResponse(
         @Json(name = "id")
         val id: Int?,
         @Json(name = "original_language")
-        val originalLanguage: String?,  // Nullable
+        val original_language: String?,  // Nullable
         @Json(name = "original_title")
-        val originalTitle: String?,
+        val original_title: String?,
         @Json(name = "overview")
         val overview: String?,
         @Json(name = "popularity")
@@ -36,13 +36,13 @@ data class MovieListResponse(
         @Json(name = "poster_path")
         val posterPath: String?,  // Nullable
         @Json(name = "release_date")
-        val releaseDate: String?,  // Nullable
+        val release_date: String?,  // Nullable
         @Json(name = "title")
         val title: String?,
         @Json(name = "video")
         val video: Boolean,
         @Json(name = "vote_average")
-        val voteAverage: Double?,  // Nullable
+        val vote_average: Double?,  // Nullable
         @Json(name = "vote_count")
         val voteCount: Int?  // Nullable
     )
