@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Movie-App</string>
     <string name="movie_poster">Movie Poster</string>
+    <string name="star_icon">Star Icon</string>
 
 
 </resources>

@@ -1,9 +1,11 @@
 package com.example.movie_app.movieapp.di
 
 import android.util.Log
+import com.example.movie_app.data.web.repository.MovieDetailsNetworkRepositoryImpl
 import com.example.movie_app.data.web.repository.MovieListNetworkRepositoryImpl
 import com.example.movie_app.data.web.repository.UpComingMovieListNetworkRepositoryImpl
 import com.example.movie_app.data.web.service.MovieServices
+import com.example.movie_app.domain.repository.MovieDetailsNetworkRepository
 import com.example.movie_app.domain.repository.UpComingMovieListNetworkRepository
 import com.example.movie_app.utils.Constant
 import com.example.movie_app.utils.Constant.BASE_URL
@@ -63,6 +65,12 @@ class NetworkModule {
     @Provides
     fun provideUpComingMovieListNetworkRepository(movieServices: MovieServices): UpComingMovieListNetworkRepository {
         return UpComingMovieListNetworkRepositoryImpl(movieServices)
+    }
+
+    @Singleton
+    @Provides
+    fun provideMovieDetailsRepository(movieServices: MovieServices): MovieDetailsNetworkRepository {
+        return MovieDetailsNetworkRepositoryImpl(movieServices)
     }
 
 }

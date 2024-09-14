@@ -16,7 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:scaleType="centerCrop"
-            android:contentDescription="@string/movie_poster" />
+            android:contentDescription="@string/movie_poster"
+            android:src="@drawable/overview_background" />
 
         <!-- Film Başlığı -->
         <TextView
@@ -35,18 +36,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:text="Release Date"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
-
         <!-- Film Değerlendirmesi -->
-        <TextView
-            android:id="@+id/tvRating"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:layout_marginTop="8dp"/>
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <!-- Yıldız simgesi -->
+            <ImageView
+                android:id="@+id/starIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/star_icon"
+                android:src="@drawable/ic_star" />
+
+            <!-- Değerlendirme -->
+            <TextView
+                android:id="@+id/tvRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8.5"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
 
         <!-- Film Açıklaması -->
         <TextView
@@ -57,25 +75,5 @@
             android:text="Movie overview or description goes here."
             android:textColor="@color/white"
             android:textSize="14sp" />
-
-        <!-- Oyuncu Listesi Başlığı -->
-        <TextView
-            android:id="@+id/castLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Cast:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/white" />
-
-        <!-- Oyuncular için yatay liste -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/castRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp"/>
-
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

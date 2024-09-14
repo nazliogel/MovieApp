@@ -9,6 +9,7 @@ import com.example.movie_app.base.BaseActivity
 import com.example.movie_app.data.web.model.MovieListResponse
 import com.example.movie_app.databinding.ActivityDashBoardBinding
 import com.example.movie_app.domain.usecase.UseCaseState
+import com.example.movie_app.ui.listmovie.MovieDetailsFragmentAdapter
 import com.example.movie_app.ui.listmovie.MovieListFragmentAdapter
 import com.example.movie_app.ui.listmovie.MovieListViewModel
 import com.example.movie_app.ui.listmovie.MovieTopRatedListFragmentAdapter
@@ -53,6 +54,7 @@ class DashBoardActivity :
     private val movieTopRatedListAdapter by lazy {
         MovieTopRatedListFragmentAdapter()
     }
+
 
 
     override fun setupUI() {
